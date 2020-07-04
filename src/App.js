@@ -3,6 +3,7 @@ import './App.css';
 import axios from 'axios';
 import SearchForm from './Components/SearchForm';
 import GifList from './Components/GifList';
+import apiKey from '../config';
 
 export default class App extends Component {
   
@@ -19,7 +20,7 @@ export default class App extends Component {
   }
 
   // componentDidMount() {
-  //   fetch('http://api.giphy.com/v1/gifs/trending?api_key=korK2gDo6ZScPEehY8mehWd46oRQFMmq')
+  //   fetch('http://api.giphy.com/v1/gifs/trending?api_key=')
   //     .then( response => response.json())
   //     .then( responseData => {
   //       this.setState({ gifs: responseData.data });
@@ -30,7 +31,7 @@ export default class App extends Component {
   // }
 
   performSearch = (query = 'funny dogs') => {
-    axios.get(`http://api.giphy.com/v1/gifs/search?q=${query}&limit=24&api_key=korK2gDo6ZScPEehY8mehWd46oRQFMmq`)
+    axios.get(`http://api.giphy.com/v1/gifs/search?q=${query}&limit=24&api_key=${apiKey}`)
       .then(response => {
         this.setState({
           gifs: response.data.data,
